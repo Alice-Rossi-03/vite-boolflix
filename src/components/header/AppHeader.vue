@@ -17,7 +17,10 @@ export default {
     <figure>
       <img src="../../assets/img/Netflix-Brand-Logo.png" alt="logo">
     </figure>
-    <input type="search" v-model="searchText" placeholder="Search...">
+    <div>
+      <input type="search" v-model="store.searchText" placeholder="Search...">
+      <button @click="$emit('filterNetflix')">GET ALL</button>
+    </div>
   </div>
 </template>
 
@@ -37,7 +40,7 @@ export default {
       height: 3em;
       border-radius: 1em;
       border: none;
-      margin-right: 1.5em;
+      margin-right: 1em;
       width: 20em;
       padding: 1em; 
 
@@ -48,6 +51,22 @@ export default {
 
       img{
         width: 100%;
+      }
+    }
+
+    button{
+      height: 3em;
+      border-radius: 1em;
+      border: none;
+      margin-right: 1em;
+      padding: 0.5em;
+      background-color: #F45555;
+      color: white;
+      font-weight: bold;
+
+      &:hover{
+        color: black;
+        background-color: #ff9696;
       }
     }
   }
