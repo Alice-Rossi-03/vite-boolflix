@@ -1,0 +1,74 @@
+<script>
+
+  export default {
+    name: 'AppCardTv',
+    props:[
+      'propsElement'
+    ]
+  }
+
+</script>
+
+<template>
+  <div class="card">
+    <div class="pos-rel">
+        <figure>
+            <img :src=" `https://image.tmdb.org/t/p/w342${propsElement.poster_path}`" alt="img">
+        </figure>
+    </div>
+    
+    <div class="hover-content">
+        <h3>{{propsElement.name}}</h3>
+        <h4>{{propsElement.original_name}}</h4>
+        <div>{{propsElement.original_language}}</div>
+        <div>{{propsElement.vote_average}}</div>
+    </div>
+  </div>
+
+</template>
+
+<style lang="scss" scoped>
+
+  @use '../../styles/partials/variables' as *; 
+  @use '../../styles/partials/mixins' as *; 
+
+  .card{
+        width: 15em;
+        height: fit-content;
+        position: relative;
+        color: white;
+        border-radius: 0.5em;
+
+    .pos-rel{
+
+        figure{
+
+            img{
+                width: 100%;
+                height: 100%;
+
+            }
+        }
+    }
+    .hover-content{
+        position: absolute;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.54);
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        padding-block: 2em ;
+        padding-inline: 1em;
+
+        &:hover{
+            opacity: 1;
+        }
+
+
+    }
+
+}
+
+</style>
+
+

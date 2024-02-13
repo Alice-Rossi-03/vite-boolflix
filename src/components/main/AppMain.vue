@@ -1,11 +1,13 @@
 <script>
-import AppCard from './AppCard.vue';
+import AppCardMovie from './AppCardMovie.vue';
+import AppCardTv from './AppCardTv.vue';
 import {store} from '../../store'
 
 export default {
   name: 'AppMain',
   components:{
-    AppCard
+    AppCardMovie,
+    AppCardTv
   },
   data(){
     return{
@@ -21,7 +23,8 @@ export default {
 <template>
   <div class="bg-darker">
     <div class="contanier-flex">
-      <AppCard v-for="(element, index) in store.cardList" :key="index" :propsElement="element"/> 
+      <AppCardMovie v-for="(element, index) in store.cardListMovies" :key="index" :propsElement="element"/> 
+      <AppCardTv v-for="(element, index) in store.cardListTvs" :key="index" :propsElement="element"/> 
 
     </div>
   </div>

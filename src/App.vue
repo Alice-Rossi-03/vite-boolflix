@@ -18,31 +18,32 @@ export default {
   methods:{
     getList(){
 
-      if(store.searchText !== ''){
-        store.apiUrlMovies += `&title=${searchText}`
-      }
-
-      if(store.searchText !== ''){
-        store.apiUrlTv += `&title=${searchText}`
-      }
-
       axios
       .get(store.apiUrlMovies)
       .then((result) => {
         console.log(result.data)
-        store.cardList = result.data.results
+        store.cardListMovies = result.data.results
       })
 
       axios
       .get(store.apiUrlTv)
       .then((result) => {
         console.log(result.data)
-        store.cardList = result.data.results
+        store.cardListTvs = result.data.results 
       })
+
+      if(store.searchText !== ''){
+        store.apiUrlMovies += `&title=${searchText}`
+      }
+
+      if(store.searchText !== ''){
+        store.apiUrlTv += `&name=${searchText}`
+      }
     }
   },
   mounted(){
     this.getList()
+    console.log(store.cardList)
   }
 };
 </script>
