@@ -1,20 +1,24 @@
 <script>
+import AppHeader from './components/header/AppHeader.vue'
+import AppMain from './components/main/AppMain.vue'
+
 export default {
-  
-}
+  components:{
+    AppHeader,
+    AppMain
+  },
+};
 </script>
 
 <template>
-  <div>
-    
-  </div>
+  <header>
+    <AppHeader/>
+  </header>
+  <main>
+    <AppMain/>
+  </main>
 </template>
 
 <style lang="scss">
-@use './styles/general.scss' as *;
-@use './styles/partials/variables.scss' as *;
-@use './styles/partials/mixins.scss' as *;
-
-
-
+  
 </style>
