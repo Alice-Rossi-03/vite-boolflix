@@ -4,7 +4,6 @@ import AppHeader from './components/header/AppHeader.vue'
 import AppMain from './components/main/AppMain.vue'
 import {store} from './store'
 
-
 export default {
   components:{
     AppHeader,
@@ -42,9 +41,6 @@ export default {
         console.log(result.data)
         store.cardListTvs = result.data.results 
       })
-
-
-      
     }
   },
   mounted(){
@@ -56,16 +52,10 @@ export default {
 </script>
 
 <template>
-  <header>
-    <AppHeader @filterNetflix="getList"/>
-  </header>
-  <main>
+    <AppHeader @filterNetflix="getList"></AppHeader>
     <AppMain/>
-  </main>
 </template>
 
 <style lang="scss">
-header{
-  box-shadow: 0px 0px 100px black;
-}
+
 </style>

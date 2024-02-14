@@ -30,12 +30,17 @@ export default {
   @use '../../styles/partials/mixins' as *; 
 
   .bg-black{
-    box-shadow: 0px 0px 100px black;
-    background-color: $black;
+    box-shadow: 0px 0px 3em 3em rgba(0, 0, 0, .800);
+    background-color: rgba(0, 0, 0, .8);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 9999;
     height: 8em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 
     input{
       height: 3em;

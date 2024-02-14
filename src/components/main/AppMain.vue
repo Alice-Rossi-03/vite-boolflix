@@ -19,15 +19,10 @@ export default {
 </script>
 
 <template>
-  <div class="bg-darker">
+  <div class="container">
     <div class="contanier-flex">
-
-      
-
       <AppCard v-for="(element, index) in store.cardListMovies" :key="index" :propsElement="element"/>
       <AppCard v-for="(element, index) in store.cardListTvs" :key="index" :propsElement="element"/> 
-      
-
     </div>
   </div>
 </template>
@@ -37,19 +32,19 @@ export default {
   @use '../../styles/partials/variables' as *; 
   @use '../../styles/partials/mixins' as *; 
 
-  .bg-darker{
-    background-color: $darker;
-    height: calc(100vh - 8em);
+  .container{
+    height: calc(100vh);
     overflow-y: auto;
+    margin-top: 8em;
+    padding: 2em;
       .contanier-flex{
-      background-color: $darker;
       display: flex;
       gap: 0.3em;
       padding: 1em;
       align-items: start;
       flex-wrap: wrap;
       justify-content: center;
-      width: 80%;
+      width: 90%;
       margin: auto;
       overflow-y: scroll;
       padding-block: 2em;
@@ -59,7 +54,6 @@ export default {
       }
     }
   }
-  
 
 </style>
 

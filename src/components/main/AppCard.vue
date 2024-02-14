@@ -9,11 +9,20 @@ import {store} from '../../store'
     data(){
       return{
         store,
+        emptyStar:'',
+        ratingFive: ''
       }
     },
-    methods: {
-      
+    methods:{
+      getRating(){
+        this.ratingFive = this.propsElement.vote_average;
+        this.ratingFive = Math.ceil(this.ratingFive / 2);
+        this.emptyStar = 5 - this.ratingFive; 
+      }
     },
+    mounted(){
+      this.getRating()
+    }
   }
 
 </script>
@@ -21,7 +30,7 @@ import {store} from '../../store'
 <template>
   
   <div class="card">
-    <div class="pos-rel">
+    <div class="container">
         <figure v-if="propsElement.poster_path">
             <img :src=" `https://image.tmdb.org/t/p/w342${propsElement.poster_path}`" alt="img">
         </figure>
@@ -35,11 +44,15 @@ import {store} from '../../store'
         <span style="font-weight: bold;">Language: </span>
         <span :class="`lang-icon lang-icon-${propsElement.original_language}`"></span>
       </div>
-      <div>{{propsElement.vote_average}}</div>
-
+      <div class="d-flex">
+        <span style="font-weight: bold;">Ratings:</span>
+        <i class="fa-solid fa-star" style="color: gold" v-for="(element) in ratingFive"></i>
+        <i class="fa-solid fa-star" style="opacity: 0.50;" v-for="(element) in emptyStar"></i>
+      </div>
+      
       <div>
         <span style="font-weight: bold;">Description: </span>
-        <p>{{propsElement.overview}}</p>
+        <p style="font-size: 0.9em;">{{propsElement.overview}}</p>
       </div>
     </div>
   </div>
@@ -57,7 +70,7 @@ import {store} from '../../store'
         position: relative;
         color: white;
         border-radius: 0.5em;
-    .pos-rel{
+    .container{
         .img-not-found{
             padding-block: 5em;
             text-align: center;
