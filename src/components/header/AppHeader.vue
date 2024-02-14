@@ -18,7 +18,7 @@ export default {
       <img src="../../assets/img/Netflix-Brand-Logo.png" alt="logo">
     </figure>
     <div>
-      <input type="search" v-model="store.searchText" placeholder="Search...">
+      <input type="search" v-model="store.searchText" placeholder="Search..." @keyup.enter="$emit('filterNetflix')">
       <button @click="$emit('filterNetflix')">GET ALL</button>
     </div>
   </div>
@@ -30,6 +30,7 @@ export default {
   @use '../../styles/partials/mixins' as *; 
 
   .bg-black{
+    box-shadow: 0px 0px 100px black;
     background-color: $black;
     display: flex;
     justify-content: space-between;

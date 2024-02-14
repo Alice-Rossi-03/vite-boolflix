@@ -65,4 +65,7 @@ export default {
 </template>
 
 <style lang="scss">
+header{
+  box-shadow: 0px 0px 100px black;
+}
 </style>

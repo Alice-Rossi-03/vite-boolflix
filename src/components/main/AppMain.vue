@@ -23,8 +23,16 @@ export default {
 <template>
   <div class="bg-darker">
     <div class="contanier-flex">
+
+      
+
       <AppCardMovie v-for="(element, index) in store.cardListMovies" :key="index" :propsElement="element"/> 
-      <AppCardTv v-for="(element, index) in store.cardListTvs" :key="index" :propsElement="element"/> 
+      
+
+      
+      <AppCardMovie v-for="(element, index) in store.cardListTvs" :key="index" :propsElement="element"/> 
+      
+      <!-- <AppCardTv v-for="(element, index) in store.cardListTvs" :key="index" :propsElement="element"/>  -->
 
     </div>
   </div>
@@ -52,6 +60,9 @@ export default {
       overflow-y: scroll;
       padding-block: 2em;
       
+      h2{
+        color: white;
+      }
     }
   }
   
