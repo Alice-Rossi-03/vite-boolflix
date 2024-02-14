@@ -1,47 +1,46 @@
 <script>
-export default {
-  
-}
-</script>
-
-<template>
-  <div>
-    
-  </div>
-</template>
-
-
-<style></style>
-<!-- <script>
+import {store} from '../../store'
 
   export default {
-    name: 'AppCardTv',
+    name: 'AppCard',
     props:[
       'propsElement'
-    ]
+    ],
+    data(){
+      return{
+        store,
+      }
+    },
+    methods: {
+      
+    },
   }
 
 </script>
 
 <template>
+  
   <div class="card">
     <div class="pos-rel">
         <figure v-if="propsElement.poster_path">
             <img :src=" `https://image.tmdb.org/t/p/w342${propsElement.poster_path}`" alt="img">
         </figure>
-
         <div v-else class="img-not-found">Image Not Found :c</div>
-
     </div>
     
     <div class="hover-content">
-        <h3 class="bigger-text">{{propsElement.name}}</h3>
-        <h4 v-show="propsElement.name !== propsElement.original_name">Original Name: {{propsElement.original_name}}</h4>
-        <div class="d-flex">
-          <span style="font-weight: bold;">Language:  </span>
-          <span :class="`lang-icon lang-icon-${propsElement.original_language}`"></span>
-        </div>
-        <div>{{propsElement.vote_average}}</div>
+      <h3 class="bigger-text">{{propsElement.title || propsElement.name}}</h3>
+      <h4 v-show="(propsElement.title !== propsElement.original_title)||(propsElement.name !== propsElement.original_name)">Original Name: {{propsElement.original_title || propsElement.original_name}}</h4>
+      <div class="d-flex">
+        <span style="font-weight: bold;">Language: </span>
+        <span :class="`lang-icon lang-icon-${propsElement.original_language}`"></span>
+      </div>
+      <div>{{propsElement.vote_average}}</div>
+
+      <div>
+        <span style="font-weight: bold;">Description: </span>
+        <p>{{propsElement.overview}}</p>
+      </div>
     </div>
   </div>
 
@@ -83,6 +82,7 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 0.5em;
+        overflow: auto;
         .bigger-text{
           font-size: 1.5em;
         }
@@ -97,4 +97,6 @@ export default {
     }
 }
 
-</style> -->
+</style>
+
+

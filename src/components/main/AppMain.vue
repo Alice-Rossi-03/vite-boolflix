@@ -1,13 +1,11 @@
 <script>
-import AppCardMovie from './AppCardMovie.vue';
-import AppCardTv from './AppCardTv.vue';
+import AppCard from './AppCard.vue';
 import {store} from '../../store'
 
 export default {
   name: 'AppMain',
   components:{
-    AppCardMovie,
-    AppCardTv
+    AppCard,
   },
   data(){
     return{
@@ -26,13 +24,9 @@ export default {
 
       
 
-      <AppCardMovie v-for="(element, index) in store.cardListMovies" :key="index" :propsElement="element"/> 
+      <AppCard v-for="(element, index) in store.cardListMovies" :key="index" :propsElement="element"/>
+      <AppCard v-for="(element, index) in store.cardListTvs" :key="index" :propsElement="element"/> 
       
-
-      
-      <AppCardMovie v-for="(element, index) in store.cardListTvs" :key="index" :propsElement="element"/> 
-      
-      <!-- <AppCardTv v-for="(element, index) in store.cardListTvs" :key="index" :propsElement="element"/>  -->
 
     </div>
   </div>
