@@ -12,14 +12,16 @@
 <template>
   <div class="card">
     <div class="pos-rel">
-        <figure>
+        <figure v-if="propsElement.poster_path">
             <img :src=" `https://image.tmdb.org/t/p/w342${propsElement.poster_path}`" alt="img">
         </figure>
+
+        <div v-else class="img-not-found">Image Not Found :c</div>
     </div>
     
     <div class="hover-content">
       <h3>{{propsElement.title}}</h3>
-      <h4>{{propsElement.title}}</h4>
+      <h4>{{propsElement.original_title}}</h4>
       <div>{{propsElement.original_language}}</div>
       <div>{{propsElement.vote_average}}</div>
     </div>
@@ -34,15 +36,21 @@
 
   .card{
         width: 15em;
-        height: fit-content;
+        height: 22.75em;
         position: relative;
         color: white;
         border-radius: 0.5em;
+        overflow: hidden;
 
     .pos-rel{
 
-        figure{
+      .img-not-found{
+            padding-block: 5em;
+            text-align: center;
+        }
 
+        figure{
+          
             img{
                 width: 100%;
                 height: 100%;

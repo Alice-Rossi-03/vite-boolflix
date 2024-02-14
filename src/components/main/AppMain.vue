@@ -37,6 +37,8 @@ export default {
 
   .bg-darker{
     background-color: $darker;
+    height: calc(100vh - 8em);
+    overflow-y: auto;
       .contanier-flex{
       background-color: $darker;
       display: flex;
