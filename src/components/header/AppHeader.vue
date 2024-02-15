@@ -19,7 +19,9 @@ export default {
     </figure>
     <div>
       <input type="search" v-model="store.searchText" placeholder="Search..." @keyup.enter="$emit('filterNetflix')">
-      <button @click="$emit('filterNetflix')">GET ALL</button>
+      <button @click="$emit('filterNetflix')">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
   </div>
 </template>
@@ -67,7 +69,7 @@ export default {
       border-radius: 1em;
       border: none;
       margin-right: 2em;
-      padding: 0.5em;
+      padding: 1em;
       background-color: #F45555;
       color: white;
       font-weight: bold;
