@@ -15,7 +15,7 @@ export default {
 <template>
   <div class="bg-black">
     <figure>
-      <img src="../../assets/img/Netflix-Brand-Logo.png" alt="logo">
+      <img src="../../assets/img/boolflix-logo.png" alt="logo">
     </figure>
     <div>
       <input type="search" v-model="store.searchText" placeholder="Search..." @keyup.enter="$emit('filterNetflix')">
@@ -48,12 +48,14 @@ export default {
       border: none;
       margin-right: 1em;
       width: 20em;
-      padding: 1em; 
+      padding: 1em;
 
     }
 
     figure{
       width: 20%;
+      margin-left: 1em;
+      padding: 1em; 
 
       img{
         width: 100%;
@@ -64,7 +66,7 @@ export default {
       height: 3em;
       border-radius: 1em;
       border: none;
-      margin-right: 1em;
+      margin-right: 2em;
       padding: 0.5em;
       background-color: #F45555;
       color: white;
